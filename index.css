@@ -87,26 +87,40 @@ header {
   flex-direction: column;
   margin-top: 2em;
   width: max-content;
-  transform: translateX(-30%) translateY(-40px);
   background-color: white;
-
-  z-index: -1;
+  
   max-height: 0;
   opacity: 0;
   overflow: hidden;
-  transition: all .7s ease-in-out;
+  visibility: hidden;
+  transform: translateX(-30%) translateY(-40px);
+  transition: all .7s ease;
+  animation: slide .7s;
+}
+
+@keyframes slide {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 
 /* menu-item 호버시 서브메뉴 보여주기 */
 .menu-item:hover .item-submenu {
-  z-index: 1;
   max-height: max-content;
   opacity: 1;
+  z-index: 1;
+  visibility: visible;
   transform: translateX(-30%) translateY(0);
 }
 
 .menu-item .item-submenu li {
-  padding: .5em;
+  padding: 1em;
 }
 
 .item-submenu li:hover {
