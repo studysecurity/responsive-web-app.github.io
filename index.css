@@ -133,10 +133,12 @@ header {
   position: relative;
   display: flex;
   align-items: center;
+  justify-content: center;
   max-width: 102rem;
   margin: 0 auto;
   width: 100%;
   height: calc(100vh - 14.5rem);
+  overflow: hidden;
 }
 
 .carousel-item-wrapper {
@@ -144,15 +146,13 @@ header {
   width: 100%;
   height: calc(100vh - 14.5rem);
   transition: transform .7s ease-in-out;
-  transform: translate3d(0, 0, 0);
+  transform: translate3d(-100%, 0, 0);
   will-change: transform;
-  overflow: hidden;
-  /* backface-visibility: hidden; */
 }
 
 .carousel-item {
   display: block;
-  width: 100%;
+  width: 300%;
   min-width: 100%;
   height: calc(100vh - 14.5rem);
 }
@@ -205,6 +205,26 @@ header {
 .next-btn {
   margin-right: 3em;
   cursor: pointer;
+}
+
+.pagination {
+  display: flex;
+  position: absolute;
+  bottom: 0;
+  width: 2em;
+  margin: 0 auto;
+}
+
+.pagination .dot {
+  padding: 1em;
+  margin: 1em;
+  background-color: gainsboro;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.pagination .dot_active {
+  background-color: gray;
 }
 
 /* 반응형 */

@@ -1,14 +1,37 @@
 (() => {
     const menuContainerEle = document.querySelector('.menu-container');
 
+    /* carousel */
 	const carouselItemWrapperEle = document.querySelector('.carousel-item-wrapper');
     const carouselItemEle = document.querySelectorAll('.carousel-item');
+    const carouselItemLen = carouselItemEle.length;
     let currentItemIndex = 0;
     const carouselNextButtonEle = document.querySelector('.next-btn');
     const carouselPrevButtonEle = document.querySelector('.prev-btn');
 
-    const carouselItemLen = carouselItemEle.length;
     const carouselSpeed = 300;
+    let firstCarouselItemChild = carouselItemWrapperEle.firstElementChild;
+    let lastCarouselItemChild = carouselItemWrapperEle.lastElementChild;
+    let clonedFirst = firstCarouselItemChild.cloneNode(true);
+    let clonedLast = lastCarouselItemChild.cloneNode(true);
+
+    carouselItemWrapperEle.appendChild(clonedFirst);
+    carouselItemWrapperEle.insertBefore(clonedLast, carouselItemWrapperEle.firstElementChild);
+ 
+    // carouselItemWrapperEle.style.transform = `translate3d(-${100 * (currentItemIndex + 1)}%, 0, 0)`;
+    carouselItemEle[currentItemIndex].classList.add('active');
+
+    /* pagination */
+    const pagination = document.querySelector('.pagination');
+    let pageChild = '';
+    for(let i = 0; i < carouselItemLen; i++) {
+        pageChild += '<li class="dot';
+        pageChild += (i === currentItemIndex) ? ' dot_active' : '';
+        pageChild += '"data-index="' + i + '"><a href="#"></a></li>';
+    }
+    pagination.innerHTML = pageChild;
+    const pageDots = document.querySelectorAll('.dot');
+    let currentDot;
 
     window.addEventListener('resize', () => {
         if (window.innerWidth <= 992) {
@@ -33,37 +56,81 @@
     }
 
     carouselNextButtonEle.addEventListener('click', () => {
-		carouselItemEle[currentItemIndex].classList.remove('active');
-		currentItemIndex++;
-
-		if (currentItemIndex > carouselItemLen - 1) {
-			currentItemIndex = 0;
-		}
-
-		carouselItemEle[currentItemIndex].classList.add('active');
-		setTimeout(() => {
-			carouselItemWrapperEle.style.transform = `translate3d(-${100 * currentItemIndex}%, 0, 0)`;
-		}, carouselSpeed);
+        nextSlide();
 	});
 
     carouselPrevButtonEle.addEventListener('click', () => {
-		carouselItemEle[currentItemIndex].classList.remove('active');
-		currentItemIndex--;
+		prevSlide();
+    });
 
-		if (currentItemIndex <= -1) {
-			currentItemIndex = 2;
-		}
+    nextSlide = () => {
+        carouselItemEle[currentItemIndex].classList.remove('active');
 
+        // 다음 슬라이드 아이템이 있으면
+        if (currentItemIndex <= carouselItemLen - 1) {
+            carouselItemWrapperEle.style.transition = `${carouselSpeed}ms`;
+            carouselItemWrapperEle.style.transform = `translate3d(-${100 * (currentItemIndex + 2)}%, 0, 0)`;
+        }
+
+        // 마지막 슬라이드이고 다음 버튼을 클릭시
+        if (currentItemIndex === carouselItemLen - 1) {
+            setTimeout(() => {
+                carouselItemWrapperEle.style.transition = `0ms`;
+                carouselItemWrapperEle.style.transform = `translate3d(-${100}%, 0, 0)`;
+            }, carouselSpeed);
+            currentItemIndex = -1;
+        }
+
+        pageDots[(currentItemIndex === -1 ? carouselItemLen - 1 : currentItemIndex)].classList.remove('dot_active');
+        currentItemIndex++;
         carouselItemEle[currentItemIndex].classList.add('active');
-        setTimeout(() => {
-            carouselItemWrapperEle.style.transform = `translate3d(-${100 * currentItemIndex}%, 0, 0)`;
-            carouselItemWrapperEle.style.transform = `translate3d(${100 * currentItemIndex}%, 0, 0)`;
-		}, carouselSpeed);
-	});
+        pageDots[currentItemIndex].classList.add('dot_active');
+    };
 
-    carouselItemWrapperEle.addEventListener('transitionend', () => {
-        console.log(carouselItemEle[currentItemIndex]);
-    })
+    prevSlide = () => {
+        carouselItemEle[currentItemIndex].classList.remove('active');
+
+        // 이전 슬라이드 아이템이 있으면
+        if (currentItemIndex >= 0) {
+            carouselItemWrapperEle.style.transition = `${carouselSpeed}ms`;
+            carouselItemWrapperEle.style.transform = `translate3d(-${100 * currentItemIndex}%, 0, 0)`;
+        }
+
+        // 맨 처음 슬라이드고 이전 버튼 클릭시
+        if (currentItemIndex === 0) {
+            setTimeout(() => {
+                carouselItemWrapperEle.style.transition = `0ms`;
+                carouselItemWrapperEle.style.transform = `translate3d(-${100 * carouselItemLen}%, 0, 0)`;
+            }, carouselSpeed);
+            currentItemIndex = carouselItemLen;
+        }
+
+        pageDots[(currentItemIndex === carouselItemLen) ? 0: currentItemIndex].classList.remove('dot_active');
+        currentItemIndex--;
+        carouselItemEle[currentItemIndex].classList.add('active');
+        pageDots[currentItemIndex].classList.add('dot_active');
+    };
+
+    Array.prototype.forEach.call(pageDots, (dot, i) => {
+        dot.addEventListener('click', (e) => {
+            e.preventDefault();
+            currentDot = document.querySelector('.dot_active');
+            currentDot.classList.remove('dot_active');
+
+            const dotList = document.querySelectorAll('.dot');
+            dotList[i].classList.add('dot_active');
+
+            carouselItemEle[currentItemIndex].classList.remove('active');
+            currentItemIndex = i;
+            carouselItemEle[currentItemIndex].classList.add('active');
+            carouselItemWrapperEle.style.transition = `${carouselSpeed}ms`;
+            carouselItemWrapperEle.style.transform = `translate3d(-${100 * (currentItemIndex + 1)}%, 0, 0)`;
+        });
+    });
+
+    setInterval(() => {
+        nextSlide();
+    }, 4000);
 })();
 
 
