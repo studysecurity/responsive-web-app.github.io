@@ -41,9 +41,9 @@
 		}
 
 		carouselItemEle[currentItemIndex].classList.add('active');
-		// setTimeout(() => {
-		// 	carouselItemWrapperEle.style.transform = `translate3d(-${100 * currentItemIndex}%, 0, 0)`;
-		// }, carouselSpeed);
+		setTimeout(() => {
+			carouselItemWrapperEle.style.transform = `translate3d(-${100 * currentItemIndex}%, 0, 0)`;
+		}, carouselSpeed);
 	});
 
     carouselPrevButtonEle.addEventListener('click', () => {
@@ -54,9 +54,16 @@
 			currentItemIndex = 2;
 		}
 
-		carouselItemEle[currentItemIndex].classList.add('active');
+        carouselItemEle[currentItemIndex].classList.add('active');
+        setTimeout(() => {
+            carouselItemWrapperEle.style.transform = `translate3d(-${100 * currentItemIndex}%, 0, 0)`;
+            carouselItemWrapperEle.style.transform = `translate3d(${100 * currentItemIndex}%, 0, 0)`;
+		}, carouselSpeed);
 	});
 
+    carouselItemWrapperEle.addEventListener('transitionend', () => {
+        console.log(carouselItemEle[currentItemIndex]);
+    })
 })();
 
 
