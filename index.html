@@ -1,56 +1,303 @@
 <!DOCTYPE html>
-<html>
+<html lang="ko">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<link rel="stylesheet" type="text/css" href="index.css" />
-    <script type="text/javascript" src="index.js" defer></script>
-    <title>반응형 웹앱</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<link rel="stylesheet" type="text/css" href="index.css" />
+	<script type="text/javascript" src="index.js" defer></script>
 </head>
+
 <body>
-    <header>
-			<section class="header-container">
-				<a class="logo" href="#">
-					<img class="logo-image" src="images/logo.png" />
-				</a>
-				<nav class="menu-container">
-					<ul class="menu">
-						<li class="menu-item">
-							<a href="#">메뉴 1</a>
-							<ul class="item-submenu">
-								<li>메뉴1 - 서브메뉴 1</li>
-								<li>메뉴1 - 서브메뉴 2</li>
-								<li>메뉴1 - 서브메뉴 3</li>
-								<li>메뉴1 - 서브메뉴 4</li>
-							</ul>
-						</li>
-						<li class="menu-item">메뉴 2</li>
-						<li class="menu-item">메뉴 3</li>
-						<li class="menu-item">메뉴 4</li>
-						<li class="menu-item">메뉴 5</li>
+	<header>
+		<section class="header__container">
+			<a href="#" class="logo">
+				<img class="logo__img" src="images/logo.png" />
+			</a>
+			<ul class="menu">
+				<li class="menu__list">
+					<a href="#">메뉴1</a>
+					<ul class="submenu">
+						<li class="submenu__list">menu</li>
+						<li class="submenu__list">menu</li>
+						<li class="submenu__list">menu</li>
+						<li class="submenu__list">menu</li>
+						<li class="submenu__list">menu</li>
+						<li class="submenu__list">menu</li>
 					</ul>
-				</nav>
-			</section>
+				</li>
+				<li class="menu__list">
+					<a href="#">메뉴2</a>
+					<ul class="submenu">
+						<li class="submenu__list">menu</li>
+						<li class="submenu__list">menu</li>
+						<li class="submenu__list">menu</li>
+						<li class="submenu__list">menu</li>
+						<li class="submenu__list">menu</li>
+						<li class="submenu__list">menu</li>
+					</ul>
+				</li>
+				<li class="menu__list">
+					<a href="#">메뉴3</a>
+				</li>
+				<li class="menu__list">
+					<a href="#">로그인</a>
+				</li>
+				<li class="menu__list">
+					<a href="#">회원가입</a>
+				</li>
+			</ul>
+
+			<div class="hamburger__menu">
+				<span></span>
+				<span></span>
+				<span></span>
+				<span></span>
+			</div>
+		</section>
 	</header>
 	<main>
-		<section class="carousel-container">
-			<div class="carousel-item-wrapper">
-				<div class="carousel-item item1"></div>
-				<div class="carousel-item item2"></div>
-				<div class="carousel-item item3"></div>
-			</div>
-			
-			<div class="carousel-btn-box">
-				<button type="button" class="prev-btn">&lt;</button>
-				<button type="button" class="next-btn">&gt;</button>
-			</div>
+		<section class="slider">
+			<div class="slider__container">
+				<ul class="slider__wrapper">
+					<li class="slider__item item1">
+						<figcaption class="slider__item__description">
+							<p>
+								Lorem ipsum dolor sit amet consectetur, adipisicing elit. Itaque labore quisquam dolor
+								facere natus magnam enim. Sequi consectetur impedit earum, aspernatur sapiente hic
+								molestiae, sunt quaerat itaque rem ducimus perferendis?
+							</p>
+						</figcaption>
+					</li>
+					<li class="slider__item item2">
+						<figcaption class="slider__item__description">
+							<p>
+								Lorem ipsum dolor sit amet consectetur, adipisicing elit. Itaque labore quisquam dolor
+								facere natus magnam enim. Sequi consectetur
+							</p>
+						</figcaption>
+					</li>
+					<li class="slider__item item3">
+						<figcaption class="slider__item__description">
+							<p>
+								Lorem ipsum dolor sit amet consectetur, adipisicing elit. Itaque labore quisquam dolor
+								facere natus magnam enim. Sequi consectetur impedit earum, aspernatur sapiente hic
 
-			<ul class="pagination"></ul>
+						</figcaption>
+					</li>
+					<li class="slider__item item4">
+						<figcaption class="slider__item__description">
+							<p>
+								Lorem ipsum dolor sit amet consectetur, adipisicing elit. Itaque labore quisquam dolor
+								facere natus magnam enim. Sequi consectetur impedit earum, aspernatur
+							</p>
+						</figcaption>
+					</li>
+					<li class="slider__item item5">
+						<figcaption class="slider__item__description">
+							<p>
+								Lorem ipsum dolor sit amet consectetur, adipisicing elit. Itaque labore quisquam dolor
+								facere natus magnam enim. Sequi consectetur impedit earum, aspernatur sapiente hic
+								molestiae, sunt quaerat itaque rem ducimus perferendis?wefwf
+								wefwefwew
+							</p>
+						</figcaption>
+					</li>
+				</ul>
+
+				<button class="slider-btn left-btn"></button>
+				<button class="slider-btn right-btn"></button>
+
+				<ul class="pagination">test</ul>
+			</div>
 		</section>
 
-		<section>
-			<div>테스트</div>
+		<section class="ranking">
+			<div class="ranking__container">
+				<figure class="ranking__header">
+					<img src="images/illustration/illustration1.png" alt="일러스트">
+				</figure>
+				<figure class="profile">
+					<img src="images/profile/profile.png" alt="일러스트 작성자">
+				</figure>
+				<div class="ranking__contents">
+					<span class="title">제목</span>
+					<span class="contents">내용</span>
+				</div>
+			</div>
+			<div class="ranking__container">
+				<figure class="ranking__header">
+					<img src="images/illustration/illustration2.png" alt="일러스트">
+				</figure>
+				<figure class="profile">
+					<img src="images/profile/profile2.jpg" alt="일러스트 작성자">
+				</figure>
+				<div class="ranking__contents">
+					<span class="title">제목</span>
+					<span class="contents">내용</span>
+				</div>
+			</div>
+			<div class="ranking__container">
+				<figure class="ranking__header">
+					<img src="images/illustration/illustration3.png" alt="일러스트">
+				</figure>
+				<figure class="profile">
+					<img src="images/profile/profile3.jpg" alt="일러스트 작성자">
+				</figure>
+				<div class="ranking__contents">
+					<span class="title">제목</span>
+					<span class="contents">내용</span>
+				</div>
+			</div>
+			<div class="ranking__container">
+				<figure class="ranking__header">
+					<img src="images/illustration/illustration4.png" alt="일러스트">
+				</figure>
+				<figure class="profile">
+					<img src="images/profile/profile4.jpg" alt="일러스트 작성자">
+				</figure>
+				<div class="ranking__contents">
+					<span class="title">제목</span>
+					<span class="contents">내용</span>
+				</div>
+			</div>
 		</section>
+
+		<!-- <section class="novel">
+            <div class="novel__container">
+                <div class="novel__item">
+                    <figure class="novel__image">
+                        <img src="images/introduce1.png" alt="소설 일러스트">
+                    </figure>
+                    <div class="novel__contents">
+                        <p>
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta error animi iure doloremque
+                            distinctio iste debitis! Nihil officiis sunt fugit dignissimos ea, odit quo tempora nisi
+                            possimus optio, itaque exercitationem!
+                        </p>
+                    </div>
+                </div>
+                <div class="novel__item">
+                    <figure class="novel__image">
+                        <img src="images/introduce2.jpg" alt="소설 일러스트">
+                    </figure>
+                    <div class="novel__contents">
+                        <p>
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta error animi iure doloremque
+                            distinctio iste debitis! Nihil officiis sunt fugit dignissimos ea, odit quo tempora nisi
+                            possimus optio, itaque exercitationem!
+                        </p>
+                    </div>
+                </div>
+                <div class="novel__item">
+                    <figure class="novel__image">
+                        <img src="images/introduce3.png" alt="소설 일러스트">
+                    </figure>
+                    <div class="novel__contents">
+                        <p>
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta error animi iure doloremque
+                            distinctio iste debitis! Nihil officiis sunt fugit dignissimos ea, odit quo tempora nisi
+                            possimus optio, itaque exercitationem!
+                        </p>
+                    </div>
+                </div>
+                <div class="novel__item">
+                    <figure class="novel__image">
+                        <img src="images/introduce4.png" alt="소설 일러스트">
+                    </figure>
+                    <div class="novel__contents">
+                        <p>
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta error animi iure doloremque
+                            distinctio iste debitis! Nihil officiis sunt fugit dignissimos ea, odit quo tempora nisi
+                            possimus optio, itaque exercitationem!
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section> -->
+
+		<!-- <section class="masonry__container">
+			<div class="masonry">
+				<figure class="masonry__item">
+					<img class="masonry__image" src="https://assets.codepen.io/12005/windmill.jpg" alt="A windmill" />
+					<figcaption><a href="#">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cumque quisquam
+							nihil dignissimos temporibus voluptas magni minima sapiente accusantium sint quos placeat
+							hic debitis dolor quasi at voluptatum beatae, provident eius.</a></figcaption>
+				</figure>
+				<figure class="masonry__item">
+					<img class="masonry__image" src="https://assets.codepen.io/12005/suspension-bridge.jpg"
+						alt="The Clifton Suspension Bridge" />
+					<figcaption><a href="#">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cumque quisquam
+							nihil dignissimos temporibus voluptas magni minima sapiente accusantium sint quos placeat
+							hic debitis dolor quasi at voluptatum beatae, provident eius.</a></figcaption>
+				</figure>
+				<figure class="masonry__item">
+					<img class="masonry__image" src="https://assets.codepen.io/12005/sunset.jpg"
+						alt="Sunset and boats" />
+					<figcaption><a href="#">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cumque quisquam
+							nihil dignissimos temporibus voluptas magni minima sapiente accusantium sint quos placeat
+							hic debitis dolor quasi at voluptatum beatae, provident eius.</a></figcaption>
+				</figure>
+				<figure class="masonry__item">
+					<img class="masonry__image" src="https://assets.codepen.io/12005/snowy.jpg"
+						alt="a river in the snow" />
+					<figcaption><a href="#">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cumque quisquam
+							nihil dignissimos temporibus voluptas magni minima sapiente accusantium sint quos placeat
+							hic debitis dolor quasi at voluptatum beatae, provident eius.</a></figcaption>
+				</figure>
+				<figure class="masonry__item">
+					<img class="masonry__image" src="https://assets.codepen.io/12005/bristol-balloons1.jpg"
+						alt="a single checked balloon" />
+					<figcaption><a href="#">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cumque quisquam
+							nihil dignissimos temporibus voluptas magni minima sapiente accusantium sint quos placeat
+							hic debitis dolor quasi at voluptatum beatae, provident eius.</a></figcaption>
+				</figure>
+				<figure class="masonry__item">
+					<img class="masonry__image" src="https://assets.codepen.io/12005/dog-balloon.jpg"
+						alt="a hot air balloon shaped like a dog" />
+					<figcaption><a href="#">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cumque quisquam
+							nihil dignissimos temporibus voluptas magni minima sapiente accusantium sint quos placeat
+							hic debitis dolor quasi at voluptatum beatae, provident eius.</a></figcaption>
+				</figure>
+				<figure class="masonry__item">
+					<img class="masonry__image" src="https://assets.codepen.io/12005/abq-balloons.jpg"
+						alt="View from a hot air balloon of other balloons" />
+					<figcaption><a href="#">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cumque quisquam
+							nihil dignissimos temporibus voluptas magni minima sapiente accusantium sint quos placeat
+							hic debitis dolor quasi at voluptatum beatae, provident eius.</a></figcaption>
+				</figure>
+				<figure class="masonry__item">
+					<img class="masonry__image" src="https://assets.codepen.io/12005/disney-balloon.jpg"
+						alt="a balloon fairground ride" />
+					<figcaption><a href="#">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cumque quisquam
+							nihil dignissimos temporibus voluptas magni minima sapiente accusantium sint quos placeat
+							hic debitis dolor quasi at voluptatum beatae, provident eius.</a></figcaption>
+				</figure>
+				<figure class="masonry__item">
+					<img class="masonry__image" src="https://assets.codepen.io/12005/bristol-harbor.jpg"
+						alt="sunrise over a harbor" />
+					<figcaption><a href="#">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cumque quisquam
+							nihil dignissimos temporibus voluptas magni minima sapiente accusantium sint quos placeat
+							hic debitis dolor quasi at voluptatum beatae, provident eius.</a></figcaption>
+				</figure>
+				<figure class="masonry__item">
+					<img class="masonry__image" src="https://assets.codepen.io/12005/bristol-balloons2.jpg"
+						alt="three hot air balloons in a blue sky" />
+					<figcaption><a href="#">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cumque quisquam
+							nihil dignissimos temporibus voluptas magni minima sapiente accusantium sint quos placeat
+							hic debitis dolor quasi at voluptatum beatae, provident eius.</a></figcaption>
+				</figure>
+				<figure class="masonry__item">
+					<img class="masonry__image" src="https://assets.codepen.io/12005/toronto.jpg"
+						alt="the Toronto light up sign at night" />
+					<figcaption><a href="#">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cumque quisquam
+							nihil dignissimos temporibus voluptas magni minima sapiente accusantium sint quos placeat
+							hic debitis dolor quasi at voluptatum beatae, provident eius.</a></figcaption>
+				</figure>
+			</div>
+		</section> -->
 	</main>
 </body>
+
 </html>
