@@ -28,6 +28,11 @@ const clonedLast = lastSliderItemChild.cloneNode(true);
 sliderWrapper.appendChild(clonedFirst);
 sliderWrapper.insertBefore(clonedLast, sliderWrapper.firstElementChild);
 
+let sliderInterval;
+sliderInterval= setInterval(() => {
+    nextSlide();
+}, 4000);
+
 /* 슬라이더 페이지네이션 */
 const pagination = document.querySelector('.pagination');
 let pageChild = '';
@@ -73,11 +78,9 @@ function nextSlide() {
     currentSliderIndex++;
     sliderItem[currentSliderIndex].classList.add('active');
     pageDots[currentSliderIndex].classList.add('dot_active');
+    clearInterval(sliderInterval);
+    startInterval();
 }
-
-setInterval(() => {
-    nextSlide();
-}, 4000);
 
 // 슬라이더 이전 화면
 function prevSlide() {
@@ -102,8 +105,18 @@ function prevSlide() {
     currentSliderIndex--;
     sliderItem[currentSliderIndex].classList.add('active');
     pageDots[currentSliderIndex].classList.add('dot_active');
+    clearInterval(sliderInterval);
+    startInterval();
 }
 
+function startInterval() {
+    if (sliderInterval) 
+        clearInterval(sliderInterval);
+    
+    sliderInterval = setInterval(() => {
+        nextSlide();
+    }, 4000);
+}
 
 /* masonry 레이아웃 */
 function resizeMasonryItem(item) {
@@ -111,8 +124,9 @@ function resizeMasonryItem(item) {
     const rowGap = parseInt(window.getComputedStyle(grid).getPropertyValue('grid-row-gap'));
     const rowHeight = parseInt(window.getComputedStyle(grid).getPropertyValue('grid-auto-rows'));
     const rowSpan = Math.ceil(
-        (item.children[0].getBoundingClientRect().height + item.children[1].getBoundingClientRect().height + rowGap) /
-        (rowHeight + rowGap)
+        (item.children[0].getBoundingClientRect().height +
+        // item.children[1].getBoundingClientRect().height +
+        rowGap) / (rowHeight + rowGap)
     );
     item.style.gridRowEnd = 'span '+rowSpan;
 };
