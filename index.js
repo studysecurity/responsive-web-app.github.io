@@ -29,9 +29,7 @@ sliderWrapper.appendChild(clonedFirst);
 sliderWrapper.insertBefore(clonedLast, sliderWrapper.firstElementChild);
 
 let sliderInterval;
-sliderInterval= setInterval(() => {
-    nextSlide();
-}, 4000);
+sliderInterval = intervalTime();
 
 /* 슬라이더 페이지네이션 */
 const pagination = document.querySelector('.pagination');
@@ -113,10 +111,107 @@ function startInterval() {
     if (sliderInterval) 
         clearInterval(sliderInterval);
     
-    sliderInterval = setInterval(() => {
+    sliderInterval = intervalTime();
+}
+
+function intervalTime() {
+    return setInterval(() => {
         nextSlide();
     }, 4000);
 }
+
+/* 모달 */
+const rankingItem = document.querySelectorAll(".ranking__item");
+const modal = document.querySelector(".modal");
+const overlay = document.querySelector(".md__overlay");
+const modalClose = modal.querySelector("button");
+
+function openModal(item) {
+    modal.children[1].appendChild(item.children[0].cloneNode(true));
+    modal.classList.remove("hidden");
+};
+
+function closeModal() {
+    modal.children[1].removeChild(modal.children[1].lastElementChild);
+    modal.classList.add("hidden");
+};
+
+overlay.addEventListener("click", () => {
+    closeModal();
+});
+
+rankingItem.forEach((item) => {
+    item.addEventListener("click", () => {
+        openModal(item);
+    });
+});
+
+modalClose.addEventListener("click", () => {
+    closeModal();
+});
+
+/* 터치 슬라이드 (touch slider) */
+// const touchSlider = document.querySelector('.touch__slider');
+// const touchInnerSlider = document.querySelector('.touch__slider__inner');
+
+// let pressed = false;
+// let startx;
+// let x;
+
+// touchSlider.addEventListener('touchstart', (e) => {
+//     pressed = true;
+//     startx = e.touches[0].clientX - touchInnerSlider.offsetLeft; // 슬라이더를 벗어난 넓이
+// }, false);
+
+// touchSlider.addEventListener('touchend', (e) => {
+//     if (!pressed) return;
+
+//     e.preventDefault();
+//     x = e.changedTouches[0].clientX;
+//     touchInnerSlider.style.left = `${x - startx}px`;
+    
+//     checkboundary();
+// });
+
+
+// touchSlider.addEventListener('mousedown', (e) => {
+//     pressed = true;
+//     startx = e.offsetX - touchInnerSlider.offsetLeft; // 슬라이더를 벗어난 넓이
+//     touchSlider.style.cursor = 'grabbing'
+// });
+
+// touchSlider.addEventListener('mouseleave', () => {
+//     pressed = false;
+//     touchSlider.style.cursor = 'default'
+// });
+
+// touchSlider.addEventListener('mouseup', () => {
+//     pressed = false;
+//     touchSlider.style.cursor = 'default';
+// });
+
+// touchSlider.addEventListener('mousemove', (e) => {
+//     if(!pressed) return;
+//     e.preventDefault();
+
+//     x = e.offsetX
+
+//     touchInnerSlider.style.left = `${x - startx}px`;
+
+//     checkboundary();
+// });
+
+// function checkboundary() {
+//     let outer = touchSlider.getBoundingClientRect();
+//     let inner = touchInnerSlider.getBoundingClientRect();
+
+//     if(parseInt(touchInnerSlider.style.left) > 0) {
+//         touchInnerSlider.style.left = '0px';
+//     } else if (inner.right < outer.right) {
+//         touchInnerSlider.style.left = `-${inner.width - outer.width}px`;
+//     }
+
+// }
 
 /* masonry 레이아웃 */
 function resizeMasonryItem(item) {
@@ -145,6 +240,7 @@ window.addEventListener('load', () => {
 window.addEventListener('resize', () => {
     resizeAllMasonryItems();
 });
+
 
 
 

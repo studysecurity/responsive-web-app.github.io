@@ -4,9 +4,12 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Document</title>
+	<title>반응형 웹앱(연습 사이트)</title>
 	<link rel="stylesheet" type="text/css" href="index.css" />
 	<script type="text/javascript" src="index.js" defer></script>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
+		integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA=="
+		crossorigin="anonymous" />
 </head>
 
 <body>
@@ -114,7 +117,8 @@
 		</section>
 
 		<section class="ranking">
-			<div class="ranking__container">
+			<div class="ranking__title">랭킹 TOP 4</div>
+			<div class="ranking__item">
 				<figure class="ranking__header">
 					<img src="images/illustration/illustration1.png" alt="일러스트">
 				</figure>
@@ -122,11 +126,11 @@
 					<img src="images/profile/profile.png" alt="일러스트 작성자">
 				</figure>
 				<div class="ranking__contents">
-					<span class="title">제목</span>
-					<span class="contents">내용</span>
+					<span class="title">아리 일러스트</span>
+					<span class="contents">LOL(아리와 함께~~)</span>
 				</div>
 			</div>
-			<div class="ranking__container">
+			<div class="ranking__item">
 				<figure class="ranking__header">
 					<img src="images/illustration/illustration2.png" alt="일러스트">
 				</figure>
@@ -134,11 +138,11 @@
 					<img src="images/profile/profile2.jpg" alt="일러스트 작성자">
 				</figure>
 				<div class="ranking__contents">
-					<span class="title">제목</span>
-					<span class="contents">내용</span>
+					<span class="title">세라핀 일러스트</span>
+					<span class="contents">세라핀!!</span>
 				</div>
 			</div>
-			<div class="ranking__container">
+			<div class="ranking__item">
 				<figure class="ranking__header">
 					<img src="images/illustration/illustration3.png" alt="일러스트">
 				</figure>
@@ -146,11 +150,11 @@
 					<img src="images/profile/profile3.jpg" alt="일러스트 작성자">
 				</figure>
 				<div class="ranking__contents">
-					<span class="title">제목</span>
-					<span class="contents">내용</span>
+					<span class="title">드래곤 일러스트</span>
+					<span class="contents">드래곤 !!</span>
 				</div>
 			</div>
-			<div class="ranking__container">
+			<div class="ranking__item">
 				<figure class="ranking__header">
 					<img src="images/illustration/illustration4.png" alt="일러스트">
 				</figure>
@@ -158,64 +162,39 @@
 					<img src="images/profile/profile4.jpg" alt="일러스트 작성자">
 				</figure>
 				<div class="ranking__contents">
-					<span class="title">제목</span>
-					<span class="contents">내용</span>
+					<span class="title">판타지 배경 일러스트</span>
+					<span class="contents">판타지배경</span>
 				</div>
 			</div>
 		</section>
 
-		<!-- <section class="novel">
-            <div class="novel__container">
-                <div class="novel__item">
-                    <figure class="novel__image">
-                        <img src="images/introduce1.png" alt="소설 일러스트">
-                    </figure>
-                    <div class="novel__contents">
-                        <p>
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta error animi iure doloremque
-                            distinctio iste debitis! Nihil officiis sunt fugit dignissimos ea, odit quo tempora nisi
-                            possimus optio, itaque exercitationem!
-                        </p>
-                    </div>
-                </div>
-                <div class="novel__item">
-                    <figure class="novel__image">
-                        <img src="images/introduce2.jpg" alt="소설 일러스트">
-                    </figure>
-                    <div class="novel__contents">
-                        <p>
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta error animi iure doloremque
-                            distinctio iste debitis! Nihil officiis sunt fugit dignissimos ea, odit quo tempora nisi
-                            possimus optio, itaque exercitationem!
-                        </p>
-                    </div>
-                </div>
-                <div class="novel__item">
-                    <figure class="novel__image">
-                        <img src="images/introduce3.png" alt="소설 일러스트">
-                    </figure>
-                    <div class="novel__contents">
-                        <p>
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta error animi iure doloremque
-                            distinctio iste debitis! Nihil officiis sunt fugit dignissimos ea, odit quo tempora nisi
-                            possimus optio, itaque exercitationem!
-                        </p>
-                    </div>
-                </div>
-                <div class="novel__item">
-                    <figure class="novel__image">
-                        <img src="images/introduce4.png" alt="소설 일러스트">
-                    </figure>
-                    <div class="novel__contents">
-                        <p>
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta error animi iure doloremque
-                            distinctio iste debitis! Nihil officiis sunt fugit dignissimos ea, odit quo tempora nisi
-                            possimus optio, itaque exercitationem!
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </section> -->
+		<!-- <section class="touch__section">
+			<div class="touch__slider">
+				<div class="touch__slider__inner">
+					<div class="slide__img">
+						<i class="fas fa-futbol"></i>
+					</div>
+					<div class="slide__img">
+						<i class="fas fa-football-ball"></i>
+					</div>
+					<div class="slide__img">
+						<i class="fas fa-golf-ball"></i>
+					</div>
+					<div class="slide__img">
+						<i class="fas fa-biking"></i>
+					</div>
+					<div class="slide__img">
+						<i class="fas fa-basketball-ball"></i>
+					</div>
+					<div class="slide__img">
+						<i class="fas fa-hockey-puck"></i>
+					</div>
+					<div class="slide__img">
+						<i class="fas fa-swimmer"></i>
+					</div>
+				</div>
+			</div>
+		</section> -->
 
 		<section class="masonry__container">
 			<div class="masonry">
@@ -299,6 +278,13 @@
 			</div>
 		</section>
 	</main>
+
+	<section class="modal hidden">
+		<div class="md__overlay"></div>
+		<div class="md__content">
+			<button class="md__close">X</button>
+		</div>
+	</section>
 </body>
 
 </html>
