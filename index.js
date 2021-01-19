@@ -151,8 +151,53 @@ modalClose.addEventListener("click", () => {
 });
 
 /* 터치 슬라이드 (touch slider) */
-// const touchSlider = document.querySelector('.touch__slider');
-// const touchInnerSlider = document.querySelector('.touch__slider__inner');
+let touchSlider;
+let touchInnerSlider;
+let touchInnerSliderMaxWidth;
+let touchSliderMaxWidth;
+resizeTouchSliderMaxWidth();
+
+const manager = new Hammer.Manager(touchSlider);
+const swipe = new Hammer.Swipe();
+
+manager.add(swipe);
+
+let deltaX = 0;
+let deltaY = 0;
+
+manager.on('swipe', function(e) {
+    e.preventDefault();
+    deltaX+= e.deltaX;
+    let direction = e.offsetDirection;
+    let translate3d = `translate3d(${deltaX}px, 0, 0)`;
+
+    if (e.target.classList[0] === "slide__img") {
+        if (direction === 4) { // 왼쪽으로 이동시
+            if (deltaX < 0) { // deltax가 작으면 오른쪽으로 이동한것이므로 이동
+                e.target.parentElement.style.transform = translate3d;
+            } else { // 0보다 크면 0번쨰 요소보다 왼쪽으로 간것이므로 0,0,0 으로 강제 셋팅
+                e.target.parentElement.style.transform = `translate3d(0, 0, 0)`;
+                deltaX = 0;
+            }
+        } else if (direction === 2) { // 오른쪽으로 이동시
+            if (deltaX < 0) {
+                if (deltaX > -(touchInnerSliderMaxWidth - touchSliderMaxWidth)) {
+                    e.target.parentElement.style.transform = translate3d;
+                } else {
+                    e.target.parentElement.style.transform = `translate3d(-${touchInnerSliderMaxWidth - touchSliderMaxWidth}px, 0, 0)`;
+                    deltaX = -(touchInnerSliderMaxWidth - touchSliderMaxWidth);
+                }
+            }
+        }
+    } 
+});
+
+function resizeTouchSliderMaxWidth() {
+    touchSlider = document.querySelector('.touch__slider');
+    touchInnerSlider = document.querySelector('.touch__slider__inner');
+    touchInnerSliderMaxWidth = touchInnerSlider.clientWidth;
+    touchSliderMaxWidth = touchSlider.clientWidth;
+}
 
 // let pressed = false;
 // let startx;
@@ -210,8 +255,8 @@ modalClose.addEventListener("click", () => {
 //     } else if (inner.right < outer.right) {
 //         touchInnerSlider.style.left = `-${inner.width - outer.width}px`;
 //     }
-
 // }
+
 
 /* masonry 레이아웃 */
 function resizeMasonryItem(item) {
@@ -239,7 +284,9 @@ window.addEventListener('load', () => {
 
 window.addEventListener('resize', () => {
     resizeAllMasonryItems();
+    resizeTouchSliderMaxWidth();
 });
+
 
 
 

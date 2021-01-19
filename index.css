@@ -544,12 +544,8 @@ header {
 }
 
 /* touch slider */
-.touch__section {
-  position: relative;
-}
-
 .touch__slider {
-  position: absolute;
+  position: relative;
   left: 10%;
   top: 30%;
   width: 80%;
@@ -559,28 +555,77 @@ header {
 
 .touch__slider__inner {
   position: absolute;
+  touch-action: pan-x;
+  cursor: pointer;
   top: 0;
   left: 0;
   height: 100%;
-  width: 200%;
+  width: 300%;
   display: grid;
-  grid-template-columns: repeat(7, 1fr);
+  grid-template-columns: repeat(10, 1fr);
   gap: 5px;
-  pointer-events: none;
-  transition: 0s ease-in;
-  -webkit-transition: 0s ease-in;
-  -moz-transition: 0s ease-in;
-  -ms-transition: 0s ease-in;
-  -o-transition: 0s ease-in;
+  will-change: transform;
+  transition: transform .3s ease-in;
+  -webkit-transition: transform .3s ease-in;
+  -moz-transition: transform .3s ease-in;
+  -ms-transition: transform .3s ease-in;
+  -o-transition: transform .3s ease-in;
 }
 
 .slide__img {
   height: 100%;
-  background-color: var(--color-black);
   text-align: center;
-  padding: 3rem;
 }
 
+.slide__img img {
+  position: relative;
+  pointer-events: none;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
+.slide__img:nth-child(1) > img {
+  background-image: url('images/touch/shean.png');
+}
+
+.slide__img:nth-child(2) > img {
+  background-image: url('images/touch/touch2.png');
+}
+
+.slide__img:nth-child(3) > img {
+  background-image: url('images/touch/touch3.jpg');
+}
+
+.slide__img:nth-child(4) > img {
+  background-image: url('images/touch/touch4.jpg');
+}
+
+.slide__img:nth-child(5) > img {
+  background-image: url('images/touch/touch5.png');
+}
+
+.slide__img:nth-child(6) > img {
+  background-image: url('images/touch/touch6.jpg');
+}
+
+.slide__img:nth-child(7) > img {
+  background-image: url('images/touch/touch7.jpg');
+}
+
+.slide__img:nth-child(8) > img {
+  background-image: url('images/touch/touch8.png');
+}
+
+.slide__img:nth-child(9) > img {
+  background-image: url('images/touch/touch9.png');
+}
+
+.slide__img:nth-child(10) > img {
+  background-image: url('images/touch/touch10.png');
+}
 
 /* masonry (레이아웃) */
 .masonry__container {
@@ -669,6 +714,9 @@ header {
     padding: 3em 3em;
   }
 
+  .touch__slider__inner {
+    width: 500%;
+  }
 }
 
 @media screen and (max-width: 576px) {
@@ -739,4 +787,7 @@ header {
     padding: 3em 3em;
   }
 
+  .touch__slider__inner {
+    width: 700%;
+  }
 }
